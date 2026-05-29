@@ -30,7 +30,7 @@ namespace PR17_romanov
             InitializeComponent(); 
         }
 
-        private void Task1_Click(object sender, RoutedEventArgs e) // кнопка задание 1
+        private void Task1_Click(object sender, RoutedEventArgs e) // кнопка задание 3
         {
             if (Task2_Panel.Visibility == Visibility.Visible)
             {
@@ -40,7 +40,7 @@ namespace PR17_romanov
             
         }
 
-        private void Task2_Click(object sender, RoutedEventArgs e)  // кнопка задание 2
+        private void Task2_Click(object sender, RoutedEventArgs e)  // кнопка задание 4
         {
             if (Task1_Panel.Visibility == Visibility.Visible)
             {
@@ -91,9 +91,28 @@ namespace PR17_romanov
             }
 
         }
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ListBoxSorted.Items.Clear();
+            if (!string.IsNullOrWhiteSpace(LetterTextBox.Text))
+            {
+                var selectedCountries = countries.Where(c => c.Name.StartsWith(LetterTextBox.Text));
+                var selectPopulation = selectedCountries.Where(c => c.Population % 2 == 1);
+                var order = selectPopulation.OrderByDescending(c=> c.Population);
 
+                foreach (var item in order)
+                {
+                    ListBoxSorted.Items.Add($"{item.Name} - {item.Population}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Введите букву, на которую должны начинаться страны");
+            }
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e) // Кнопка Начать
         {
+            ListBoxSorted.Items.Clear();
             if (string.IsNullOrWhiteSpace(NumberTextBox.Text))
             {
                 MessageBox.Show("Введите целое число в поле");
@@ -102,7 +121,7 @@ namespace PR17_romanov
 
             if (int.TryParse(NumberTextBox.Text, out int result))
             {
-                var sortedCountries = from c in countries where (c.Population > result) select c;
+                var sortedCountries = from c in countries where (c.Population > result) select c; // вывести список стран начинающихся на определенную букву население которых не четное и отсортировать в обратном порядке
                 var group = sortedCountries.OrderBy(c => c.Name.Length);
                 foreach (var item in group)
                 {

@@ -25,15 +25,18 @@
             <TextBox x:Name="txtInputWord" FontSize="20" Height="30" TextWrapping="Wrap" Background="LightGray"/>
             <ListBox x:Name="resultListBox1" FontSize="20" Height="85" Background="LightGray"/>
             <ListBox x:Name="resultListBox2" FontSize="20" Height="85" Background="LightGray" />
-            <Button Content="Поиск" FontSize="16" Foreground="White" Click="Button_Click" Background="Green" Height="30"/>
+            <Button Content="начать" FontSize="16" Foreground="White" Click="Button_Click" Background="Green" Height="30"/>
+
         </StackPanel>
 
-        <StackPanel x:Name="Task2_Panel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="318" Grid.ColumnSpan="2" Margin="242,100,232,0" Visibility="Hidden">
+        <StackPanel x:Name="Task2_Panel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" Width="318" Grid.ColumnSpan="2" Margin="242,100,232,0" Visibility="Visible">
             <Label Content="Задание 4" Background="ForestGreen" FontSize="20" HorizontalAlignment="Center" Foreground="White" Height="40" Width="318"/>
             <ListBox x:Name="ListBoxFile"  FontSize="20" Height="85"  Background="LightGray"/>
             <ListBox x:Name="ListBoxSorted" FontSize="20" Height="85" Background="LightGray" />
             <TextBox x:Name="NumberTextBox" ToolTip="Введите число" FontSize="20" Height="30" TextWrapping="Wrap" Background="LightGray" IsReadOnly="false"/>
+            <TextBox x:Name="LetterTextBox" ToolTip="Введите букву" FontSize="20" Height="30" TextWrapping="Wrap" Background="LightGray" IsReadOnly="false"/>
             <Button Content="Начать" FontSize="16" Foreground="White" Click="Button_Click_1" Background="Green" Height="30"/>
+            <Button Content="Отсортировать" FontSize="16" Foreground="White" Click="Button_Click_2" Background="Green" Height="30"/>
         </StackPanel>
 
     </Grid>
